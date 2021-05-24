@@ -1,0 +1,83 @@
+2021-05-23 14:54:17.836 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 14:54:17.899 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 14:54:17.967 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1
+2021-05-23 14:56:53.800 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 14:56:53.839 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 14:56:53.876 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 14:57:07.834 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 14:57:07.890 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 14:57:07.924 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:07:54.426 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:07:54.481 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:07:54.520 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:07:54.533 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:07:54.534 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:07:54.536 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:08:19.953 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:08:20.000 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:08:20.036 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:08:20.048 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:08:20.049 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:08:20.050 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:11:00.861 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:11:00.907 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:11:00.938 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:11:00.948 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:11:00.949 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:11:00.950 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:14:13.519 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:14:13.626 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:14:13.689 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:14:13.707 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:14:13.708 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:14:13.709 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:14:42.487 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:14:42.545 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:14:42.595 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:14:42.608 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:14:42.609 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:14:42.611 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:16:57.438 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:16:57.489 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:16:57.531 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:16:57.541 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:16:57.542 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:16:57.543 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:17:58.959 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:17:59.003 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:17:59.037 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:17:59.046 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:17:59.047 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:17:59.048 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:18:20.155 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:18:20.196 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:18:20.237 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:18:20.250 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:18:20.252 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:18:20.253 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:18:33.503 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:18:33.555 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:18:33.587 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2021-05-23 15:18:33.598 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:18:33.599 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:18:33.600 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:24:58.710 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:24:58.753 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:24:58.796 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 3
+2021-05-23 15:25:47.956 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:25:48.010 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:25:48.051 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 3
+2021-05-23 15:27:40.638 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:27:40.684 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:27:40.721 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 3
+2021-05-23 15:27:40.734 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:27:40.734 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:27:40.736 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 0
+2021-05-23 15:28:08.962 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC
+2021-05-23 15:28:09.003 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2021-05-23 15:28:09.041 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 3
+2021-05-23 15:28:09.051 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC
+2021-05-23 15:28:09.052 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2021-05-23 15:28:09.054 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1
+2021-05-23 16:25:50.027 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id is not null; ORDER BY priority DESC
+2021-05-23 16:25:50.155 [main] DEBUG o.vuffy.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
