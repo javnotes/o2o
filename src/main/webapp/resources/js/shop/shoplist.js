@@ -1,8 +1,9 @@
 $(function () {
     getlist();
+
     function getlist(e) {
         $.ajax({
-            url: "/o2o/shop/getshoplist",
+            url: "/o2o/shopadmin/getshoplist",
             type: "get",
             dataType: "json",
             success: function (data) {
@@ -11,7 +12,7 @@ $(function () {
                     handleUser(data.user);
                 }
             }
-        })
+        });
     }
 
     function handleUser(data) {
@@ -49,5 +50,4 @@ $(function () {
             return '';
         }
     }
-
-})
+});
