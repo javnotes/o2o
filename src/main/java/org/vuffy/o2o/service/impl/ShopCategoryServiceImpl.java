@@ -16,12 +16,11 @@ import java.util.List;
  */
 @Service
 public class ShopCategoryServiceImpl implements ShopCategoryService {
+  // 将 Dao层 当作是成员变量，注入使用
+  @Autowired private ShopCategoryDao shopCategoryDao;
 
-    @Autowired
-    private ShopCategoryDao shopCategoryDao;
-
-    @Override
-    public List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition) {
-        return shopCategoryDao.queryShopCategory(shopCategoryCondition);
-    }
+  @Override
+  public List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition) {
+    return shopCategoryDao.queryShopCategory(shopCategoryCondition);
+  }
 }

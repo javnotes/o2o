@@ -16,14 +16,12 @@
 
     <link rel="stylesheet" href="../resources/css/sm.min.css">
     <link rel="stylesheet" href="../resources/css/sm-extend.min.css">
-    <link rel="stylesheet" href="../resources/css/demos.css">
+    <!--    <link rel="stylesheet" href="../resources/css/demos.css">-->
 
-    <!--    <link rel="apple-touch-icon-precomposed" href="/assets/img/apple-touch-icon-114x114.png">-->
-    <script src="../resources/js/jquery.min.js"></script>
-    <script src="../resources/js/config.js"></script>
-    <script>
-        //ga
-    </script>
+    <link rel="apple-touch-icon-precomposed" href="/assets/img/apple-touch-icon-114x114.png">
+
+    <!--    <script src="../resources/js/config.js"></script>-->
+
 
 </head>
 <body>
@@ -55,17 +53,15 @@
                     <li>
                         <div class="item-content">
                             <div class="item-inner">
-                                <div class="item-title label">分类</div>
+                                <div class="item-title label">商铺分类</div>
                                 <div class="item-input">
-                                    <select id="shop-capegory">
-                                        <!--                                        <option data-id= "item.shopCataegoryid" >-->
-                                        <!--                                            item.shopCataegoryName </option> -->
+                                    <select id="shop-category">
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <!-- 区域分类 下拉列表，在后台获取值 -->
+                    <!-- 区域分类 下拉列表 -->
                     <li>
                         <div class="item-content">
                             <div class="item-inner">
@@ -139,18 +135,20 @@
             <div class="content-block">
                 <div class="row">
                     <div class="col-50"><a href="#" class="button button-big button-fill button-danger">返回</a></div>
-                    <div class="col-50"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+                    <div class="col-50"><a href="#" class="button button-big button-fill button-success"
+                                           id="submit">提交</a></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/shop/shopoperation.js"></script>
 <script src="../resources/js/sm.js"></script>
 <script src="../resources/js/sm-extend.js"></script>
 <script src="../resources/js/sm-city-picker.js"></script>
 <script src="../resources/js/demos.js"></script>
 <script src="../resources/js/common/common.js"></script>
-<script src="../resources/js/shop/shopoperation.js"></script>
 
 </body>
 </html>

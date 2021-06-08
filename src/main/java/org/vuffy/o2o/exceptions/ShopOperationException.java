@@ -7,6 +7,10 @@ package org.vuffy.o2o.exceptions;
  * @date 2021/5/15 2:09 下午
  */
 public class ShopOperationException extends RuntimeException {
+
+    // serivalVersionUID
+
+
     // errorMessage 方法接收的描述异常的信息
     public ShopOperationException(String errorMessage) {
         super(errorMessage);

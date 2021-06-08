@@ -15,10 +15,10 @@ public class CodeUtil {
   public static boolean checkVerifyCode(HttpServletRequest request) {
 
     String expectedVerifyCode =
-        (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        (String) request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
     String actualVerifyCode = HttpServletRequestUtil.getString(request, "actualVerifyCode");
 
-    if (actualVerifyCode == null || !actualVerifyCode.equals((expectedVerifyCode))) {
+    if (actualVerifyCode == null || !actualVerifyCode.equalsIgnoreCase((expectedVerifyCode))) {
       return false;
     }
     return true;
