@@ -25,7 +25,7 @@ public class ShopAdminController {
 
   @RequestMapping(value = "/shoplist")
   public String shopList() {
-    // 转发至店铺注册/编辑页面
+    // 转发至店铺列表页面
     return "shop/shoplist";
   }
 }
