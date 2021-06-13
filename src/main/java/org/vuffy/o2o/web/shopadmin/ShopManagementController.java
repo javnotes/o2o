@@ -46,7 +46,7 @@ public class ShopManagementController {
 
   @Autowired private AreaService areaService;
 
-  // Session 相关
+  // 管理 Session 相关
   @RequestMapping(value = "/getshopmanagementinfo", method = RequestMethod.GET)
   @ResponseBody
   private Map<String, Object> getShopManagementInfo(HttpServletRequest request) {
@@ -74,7 +74,7 @@ public class ShopManagementController {
   }
 
   /**
-   * 获取用户名下的店铺
+   * 获取用户名下的店铺列表
    *
    * @author vuffy
    * @date 2021/6/5 6:25 下午
@@ -85,6 +85,7 @@ public class ShopManagementController {
   private Map<String, Object> getShopList(HttpServletRequest request) {
     Map<String, Object> modelMap = new HashMap<>();
     PersonInfo user = new PersonInfo();
+    // TODO
     user.setUserId(5L);
     user.setName("Vuffy");
     request.getSession().setAttribute("user", user);

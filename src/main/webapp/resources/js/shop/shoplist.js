@@ -4,13 +4,15 @@ $(function () {
 
     function getlist(e) {
         $.ajax({
+            // ShopManagementController.getShopList
+            // @Controller][/shopadmin/getshoplist]
             url: "/o2o/shopadmin/getshoplist",
             type: "get",
             dataType: "json",
             success: function (data) {
                 if (data.success) {
-                    handleList(data.shopList);
                     handleUser(data.user);
+                    handleList(data.shopList);
                 }
             }
         });
