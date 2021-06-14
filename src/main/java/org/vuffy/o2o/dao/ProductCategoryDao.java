@@ -1,5 +1,6 @@
 package org.vuffy.o2o.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.vuffy.o2o.entity.ProductCategory;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public interface ProductCategoryDao {
     /**
      * 通过 shopId 查询该店铺中的商品类别
+     *
      * @param: [shopId]
      * @return: java.util.List<org.vuffy.o2o.entity.ProductCategory>
      * @author vuffy
@@ -22,6 +24,7 @@ public interface ProductCategoryDao {
 
     /**
      * 批量插入商品类别
+     *
      * @param: [productCategoryList]
      * @return: int 返回插入影响的行数
      * @author vuffy
@@ -29,5 +32,15 @@ public interface ProductCategoryDao {
      */
     int batchInsertProductCategory(List<ProductCategory> productCategoryList);
 
+    /**
+     * 删除店铺中指定的商品类别
+     *
+     * @param: [productCategoryId, shopId]
+     * @return: int
+     * @author vuffy
+     * @date: 2021/6/14 10:02 下午
+     */
+    int deleteProductCategory(@Param("productCategoryId") long productCategoryId,
+                              @Param("shopId") long shopId);
 
 }

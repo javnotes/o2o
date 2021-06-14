@@ -59,6 +59,7 @@ $(function () {
             success: function (data) {
                 if (data.success) {
                     $.toast('提交成功！');
+                    //更新店铺的商品类别列表
                     getList();
                 } else {
                     $.toast('提交失败！');

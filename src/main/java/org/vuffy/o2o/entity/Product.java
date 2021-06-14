@@ -24,6 +24,7 @@ public class Product {
 
     private Date lastEditTime;
 
+    // 0-下架 1-前端展示
     private Integer enableStatus;
 
     private List<ProductImg> productImgList;
