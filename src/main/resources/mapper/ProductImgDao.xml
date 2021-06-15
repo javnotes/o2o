@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间 -->
+<mapper namespace="org.vuffy.o2o.dao.ProductImgDao">
+    <insert id="batchInsertProductImg"></insert>
+
+    <select id="queryProductImgList" resultType="org.vuffy.o2o.entity.ProductImg"></select>
+
+    <delete id="deleteProductImgByProductId"></delete>
+</mapper>
