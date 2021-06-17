@@ -4,7 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 命名空间 -->
 <mapper namespace="org.vuffy.o2o.dao.ProductImgDao">
-    <insert id="batchInsertProductImg"></insert>
+    <insert id="batchInsertProductImg" parameterType="java.util.List">
+        INSERT INTO tb_product_img
+        (img_addr, img_desc, priority, create_time, product_id)
+        VALUES
+        <foreach collection="list" item="productImg" index="index" separator=",">
+            (
+            #{productImg.imgAddr}, #{productImg.imgDesc}, #{productImg.priority},
+            #{productImg.createTime}, #{productImg.productId}
+            )
+        </foreach>
+    </insert>
 
     <select id="queryProductImgList" resultType="org.vuffy.o2o.entity.ProductImg"></select>
 

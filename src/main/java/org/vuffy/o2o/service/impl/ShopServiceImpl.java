@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.vuffy.o2o.dao.ShopCategoryDao;
 import org.vuffy.o2o.dao.ShopDao;
+import org.vuffy.o2o.dto.ImageHolder;
 import org.vuffy.o2o.dto.ShopExecution;
 import org.vuffy.o2o.entity.Shop;
 import org.vuffy.o2o.enums.ShopStateEnum;
@@ -39,8 +40,6 @@ public class ShopServiceImpl implements ShopService {
     return shopExecution;
   }
 
-  @Override
-  @Transactional
   /**
    * 先往数据库添加店铺记录 然后存储图片(存储到图片服务器) 之后再把图片路径更新到数据库中 1. 检查 shop 是否合法：空 2. 添加 shop -> shopImg ->
    * addShopImg() -> generateThumbnail()
@@ -50,7 +49,9 @@ public class ShopServiceImpl implements ShopService {
    * @author vuffy
    * @date: 2021/5/15 10:41 上午
    */
-  public ShopExecution addShop(Shop shop, InputStream shopImgInputstream, String fileName) {
+  @Override
+  @Transactional
+  public ShopExecution addShop(Shop shop, ImageHolder imageHolder) {
     // 判断是该店铺信息是否可以增加，空值判断
     if (shop == null) {
       return new ShopExecution(ShopStateEnum.NULL_SHOP);
@@ -77,12 +78,12 @@ public class ShopServiceImpl implements ShopService {
         throw new ShopOperationException("店铺添加失败");
       } else {
         // 店铺添加成功后，再添加图片
-        if (shopImgInputstream != null) {
+        if (imageHolder.getImage() != null) {
           // 添加图片，用shop的Id创建图片的目录，并将 shopImg 文件流存入到该目录中
           // 该方法会将 图片的存储目录 更新到shop中
           try {
             // 图片存储成功后，即可在 shop 实例中获取图片的存储地址，后续再更新到数据库中
-            addShopImg(shop, shopImgInputstream, fileName);
+            addShopImg(shop, imageHolder);
             // 得到图片的地址
             // shop.getShopImg();
           } catch (Exception e) {
@@ -116,18 +117,18 @@ public class ShopServiceImpl implements ShopService {
    * @date: 2021/5/30 5:46 下午
    */
   @Override
-  public ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName)
+  public ShopExecution modifyShop(Shop shop, ImageHolder imageHolder)
       throws ShopOperationException {
     if (shop == null || shop.getShopId() == null) {
       return new ShopExecution(ShopStateEnum.NULL_SHOP);
     } else {
       try {
-        if (shopImgInputStream != null && fileName != null && !"".equals(fileName)) {
+        if (imageHolder.getImage() != null && imageHolder.getImageName() != null && !"".equals(imageHolder.getImageName())) {
           Shop tempShop = shopDao.queryByShopId(shop.getShopId());
           if (tempShop.getShopImg() != null) {
             ImageUtil.deleteFileOrPath(tempShop.getShopImg());
           }
-          addShopImg(shop, shopImgInputStream, fileName);
+          addShopImg(shop, imageHolder);
         }
 
         shop.setLastEditTime(new Date());
@@ -152,12 +153,12 @@ public class ShopServiceImpl implements ShopService {
    * @author vuffy
    * @date: 2021/5/15 11:16 上午
    */
-  private void addShopImg(Shop shop, InputStream shopImgInputStream, String fileName) {
+  private void addShopImg(Shop shop, ImageHolder imageHolder) {
     // 1.获取存储 店铺图片 目录的相对路径值，最后一层文件夹是shopId
     String dest = PathUtil.getShopImagePath(shop.getShopId());
     // 2. 创建存储的路径，存储图片，返回相对路径值
     // 参数1：File；参数2：dest，相对目录，不含文件名；返回值：相对路径，含文件名
-    String shopImgAddr = ImageUtil.generateThumbnail(shopImgInputStream, fileName, dest);
+    String shopImgAddr = ImageUtil.generateThumbnail(imageHolder, dest);
     // 将图片保存后的相对路径(含文件名)，更新到 shop 实例，下一步是更新数据中的 shop
     shop.setShopImg(shopImgAddr);
   }

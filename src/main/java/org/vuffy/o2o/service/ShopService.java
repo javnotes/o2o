@@ -1,5 +1,6 @@
 package org.vuffy.o2o.service;
 
+import org.vuffy.o2o.dto.ImageHolder;
 import org.vuffy.o2o.dto.ShopExecution;
 import org.vuffy.o2o.entity.Shop;
 import org.vuffy.o2o.exceptions.ShopOperationException;
@@ -26,7 +27,7 @@ public interface ShopService {
    * @author vuffy
    * @date: 2021/5/30 5:30 下午
    */
-  ShopExecution addShop(Shop shop, InputStream shopImgInputStream, String fileName)
+  ShopExecution addShop(Shop shop, ImageHolder imageHolder)
       throws ShopOperationException;
 
   /**
@@ -47,6 +48,6 @@ public interface ShopService {
    * @author vuffy
    * @date: 2021/5/30 5:30 下午
    */
-  ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName)
+  ShopExecution modifyShop(Shop shop, ImageHolder imageHolder)
       throws ShopOperationException;
 }

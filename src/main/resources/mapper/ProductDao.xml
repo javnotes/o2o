@@ -5,10 +5,17 @@
 <!-- 命名空间 -->
 <mapper namespace="org.vuffy.o2o.dao.ProductDao">
 
-    <insert id="insertProduct">
-
+    <insert id="insertProduct" parameterType="org.vuffy.o2o.entity.Product" useGeneratedKeys="true"
+            keyProperty="productId" keyColumn="product_id">
+        INSERT INTO tb_product(product_name, product_desc, img_addr, normal_price, promotion_price,
+                               priority, create_time, last_edit_time, enable_status,
+                               product_category_id, shop_id)
+        VALUES (#{productName}, #{productDesc}, #{imgAddr}, #{normalPrice}, #{promotionPrice},
+                #{priority}, #{createTime}, #{lastEditTime}, #{enableStatus},
+                #{productCategory.productCategoryId}, #{shop.shopId})
     </insert>
 
+    <select id="queryProductByProductId" resultType="org.vuffy.o2o.entity.Product">
 
-    <select id="queryProductByProductId" resultType="org.vuffy.o2o.entity.Product"></select>
+    </select>
 </mapper>
