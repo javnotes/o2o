@@ -2,6 +2,7 @@ package org.vuffy.o2o.service;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.vuffy.o2o.BaseTest;
 import org.vuffy.o2o.dto.ImageHolder;
 import org.vuffy.o2o.dto.ProductExecution;
 import org.vuffy.o2o.entity.Product;
@@ -23,7 +24,7 @@ import static org.junit.Assert.assertEquals;
  * @description: TODO
  * @date 2021/6/17 9:12 下午
  */
-public class ProductServiceTest {
+public class ProductServiceTest extends BaseTest {
 
     @Autowired
     private ProductService productService;
