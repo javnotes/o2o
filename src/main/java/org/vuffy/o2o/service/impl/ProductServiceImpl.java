@@ -15,7 +15,6 @@ import org.vuffy.o2o.service.ProductService;
 import org.vuffy.o2o.util.ImageUtil;
 import org.vuffy.o2o.util.PathUtil;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
