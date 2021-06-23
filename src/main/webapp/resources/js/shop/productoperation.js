@@ -115,12 +115,12 @@ $(function () {
         // 将product json对象转成字符流保存至表单对象key为productStr的的键值对里
         formData.append('productStr', JSON.stringify(product));
         // 获取表单里输入的验证码
-        var verifyCodeActual = $('#j_captcha').val();
-        if (!verifyCodeActual) {
+        var actualVerifyCode = $('#j_captcha').val();
+        if (!actualVerifyCode) {
             $.toast('请输入验证码！');
             return;
         }
-        formData.append("verifyCodeActual", verifyCodeActual);
+        formData.append("actualVerifyCode", actualVerifyCode);
         // 将数据提交至后台处理相关操作
         $.ajax({
             url: productPostUrl,
