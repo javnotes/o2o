@@ -29,7 +29,7 @@
         <association property="owner" column="user_id"
                      javaType="org.vuffy.o2o.entity.PersonInfo">
             <id column="user_id" property="userId"/>
-            <result column="name" property="userName"/>
+            <result column="user_name" property="userName"/>
         </association>
     </resultMap>
 

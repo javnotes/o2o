@@ -5,6 +5,32 @@
 <!-- 命名空间 -->
 <mapper namespace="org.vuffy.o2o.dao.ProductDao">
 
+    <resultMap id="productMap" type="org.vuffy.o2o.entity.Product">
+        <id column="product_id" property="productId"/>
+        <result column="product_name" property="productName"/>
+        <result column="product_desc" property="productDesc"/>
+        <result column="img_addr" property="imgAddr"/>
+        <result column="normal_price" property="normalPrice"/>
+        <result column="promotion_price" property="promotionPrice"/>
+        <result column="priority" property="priority"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_edit_time" property="lastEditTime"/>
+        <result column="enable_status" property="enableStatus"/>
+        <!--        <result column="point" property="point"/>-->
+        <association property="productCategory" column="product_category_id"
+                     javaType="org.vuffy.o2o.entity.ProductCategory">
+            <id column="product_category_id" property="productCategoryId"/>
+            <result column="product_category_name" property="productCategoryName"/>
+        </association>
+        <association property="shop" column="shop_id" javaType="org.vuffy.o2o.entity.Shop">
+            <id column="shop_id" property="shopId"/>
+            <result column="owner_id" property="ownerId"/>
+            <result column="shop_name" property="shopName"/>
+        </association>
+
+
+    </resultMap>
+
     <insert id="insertProduct" parameterType="org.vuffy.o2o.entity.Product" useGeneratedKeys="true"
             keyProperty="productId" keyColumn="product_id">
         INSERT INTO tb_product(product_name, product_desc, img_addr, normal_price, promotion_price,
@@ -15,7 +41,15 @@
                 #{productCategory.productCategoryId}, #{shop.shopId})
     </insert>
 
-    <select id="queryProductByProductId" resultType="org.vuffy.o2o.entity.Product">
+    <select id="queryProductById" resultType="org.vuffy.o2o.entity.Product">
 
     </select>
+
+    <update id="updateProduct">
+
+    </update>
+
+    <delete id="deleteProductImgByProductId">
+
+    </delete>
 </mapper>
