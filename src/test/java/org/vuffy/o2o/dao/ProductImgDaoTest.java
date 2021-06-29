@@ -25,6 +25,7 @@ public class ProductImgDaoTest extends BaseTest {
     @Autowired
     private ProductImgDao productImgDao;
 
+
     @Test
     public void testABatchInsertProductImg() throws Exception {
         // 向 productId = 2 的商品中，添加两个详情图片的记录
@@ -47,6 +48,15 @@ public class ProductImgDaoTest extends BaseTest {
         productImgList.add(productImg2);
 
         int effectedNum = productImgDao.batchInsertProductImg(productImgList);
+        assertEquals(2, effectedNum);
+    }
+
+
+    @Test
+    public void testCDeleteProductImgByProductId() throws Exception {
+        // 删除新增的两条商品详情图片
+        long productId = 2;
+        int effectedNum = productImgDao.deleteProductImgByProductId(productId);
         assertEquals(2, effectedNum);
     }
 }

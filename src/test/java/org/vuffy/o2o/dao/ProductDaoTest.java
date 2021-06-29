@@ -7,10 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.vuffy.o2o.BaseTest;
 import org.vuffy.o2o.entity.Product;
 import org.vuffy.o2o.entity.ProductCategory;
+import org.vuffy.o2o.entity.ProductImg;
 import org.vuffy.o2o.entity.Shop;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import static checkers.units.UnitsTools.s;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -75,8 +79,87 @@ public class ProductDaoTest extends BaseTest {
         int effectedNum = productDao.insertProduct(product1);
         assertEquals(1, effectedNum);
         effectedNum = productDao.insertProduct(product2);
-        assertEquals(1,effectedNum);
+        assertEquals(1, effectedNum);
         effectedNum = productDao.insertProduct(product3);
+        assertEquals(1, effectedNum);
+    }
+
+    @Test
+    // 测试和
+    public void testBQueryProductList() throws Exception {
+        Product productCondition = new Product();
+        //  分页查询，此时条件为空，则查询该所有商品，包括下架的
+        List<Product> products = productDao.queryProductList(productCondition, 0, 3);
+        assertEquals(3, products.size());
+
+        int count = productDao.queryProductCount(productCondition);
+        assertEquals(7, count);
+
+        // 查询商品名称中含"测试"的商品个数（数据库中已有5个）
+        productCondition.setProductName("商品");
+        products = productDao.queryProductList(productCondition, 0, 3);
+        assertEquals(3, products.size());
+
+        count = productDao.queryProductCount(productCondition);
+        assertEquals(5, count);
+    }
+
+    @Test
+    public void testCQueryProductById() throws Exception {
+        long productId = 8;
+
+        // 初始化两个商品详情图的实例，作为商品 productId=8 的详情图
+        // 批量插入至商品详情图表中
+        ProductImg productImg1 = new ProductImg();
+        productImg1.setImgAddr("测试图片1-QueryProductById");
+        productImg1.setImgDesc("测试图片1-QueryProductById");
+        productImg1.setPriority(1);
+        productImg1.setCreateTime(new Date());
+        productImg1.setProductId(productId);
+
+        ProductImg productImg2 = new ProductImg();
+        productImg2.setImgAddr("测试图片2-QueryProductById");
+        productImg2.setImgDesc("测试图片2-QueryProductById");
+        productImg2.setPriority(1);
+        productImg2.setCreateTime(new Date());
+        productImg2.setProductId(productId);
+
+        List<ProductImg> productImgList = new ArrayList<>();
+        productImgList.add(productImg1);
+        productImgList.add(productImg2);
+        int effectedNum = productImgDao.batchInsertProductImg(productImgList);
+        assertEquals(2, effectedNum);
+
+        // 查询 productId=8 的商品信息，校验返回的详情图实例列表的 size 是否为 2
+        Product product = productDao.queryProductById(productId);
+        assertEquals(2, product.getProductImgList().size());
+
+        // 删除新增的两个商品详情图
+        effectedNum = productImgDao.deleteProductImgByProductId(productId);
+        assertEquals(2, effectedNum);
+    }
+
+    @Test
+    public void testDUpdateProduct() throws Exception {
+        Product product = new Product();
+        ProductCategory pc = new ProductCategory();
+        Shop shop = new Shop();
+
+        shop.setShopId(27L);
+        pc.setProductCategoryId(11L);
+        product.setProductId(8L);
+        product.setShop(shop);
+        // 修改 productId=8 的商品的名称、描述、类别，校验影响的行数是否为 1
+        product.setProductName("测试商品名称-testDUpdateProduct");
+        product.setProductDesc("测试商品描述-testDUpdateProduct");
+        product.setProductCategory(pc);
+        int effectedNum = productDao.updateProduct(product);
+        assertEquals(1, effectedNum);
+    }
+
+    @Test
+    public void testUpdateProductCategoryToNull() {
+        int effectedNum = productDao.updateProductCategoryToNull(10L);
         assertEquals(1, effectedNum);
     }
 }

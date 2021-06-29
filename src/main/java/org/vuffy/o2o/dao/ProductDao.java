@@ -1,6 +1,9 @@
 package org.vuffy.o2o.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.vuffy.o2o.entity.Product;
+
+import java.util.List;
 
 /**
  * @author vuffy
@@ -36,11 +39,29 @@ public interface ProductDao {
      */
     int updateProduct(Product product);
 
+    // 这两个方法的productCondition一样，才能保证queryProductList可以使用queryProductCount的结果
     /**
-     * 删除指定商品下的所有详情图片
-     *
-     * @param productId
+     * 查询店铺的所有商品，得到商品列表并分页，可输入的条件：商品名（模糊）、商品状态、店铺id、商品类别
+     * @param productCondition
+     * @param rowIndex
+     * @param pageSize
      * @return
      */
-    int deleteProductImgByProductId(long productId);
+    List<Product> queryProductList(@Param("productCondition") Product productCondition, @Param("rowIndex") int rowIndex,
+                                   @Param("pageSize") int pageSize);
+
+    /**
+     * 查询productCondition对应的商品总数
+     * @param productCondition
+     * @return
+     */
+    int queryProductCount(@Param("productCondition") Product productCondition);
+
+    /**
+     * 删除商品类别之前，将商品类别Id置为空
+     * @param productCategoryID
+     * @return 影响的行数
+     */
+    int updateProductCategoryToNull(long productCategoryID);
+
 }
