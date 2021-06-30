@@ -11,16 +11,16 @@ public class PathUtil {
         String bathPath = "";
 
         if (os.toLowerCase().startsWith("win")) {
-            bathPath = "C:/documents/image/";
+            bathPath = "C:/documents/image";
         } else {
-            bathPath = "/Users/liliansong/Documents/image/";
+            bathPath = "/Users/liliansong/Documents/image";
         }
         bathPath = bathPath.replace("/", seperator);
         return bathPath;
     }
 
     public static String getShopImagePath(long shopId) {
-        String imagePath = "upload/item/shop/" + shopId + "/";
+        String imagePath = "/upload/item/shop/" + shopId + "/";
         return imagePath.replace("/", seperator);
 
     }

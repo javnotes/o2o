@@ -38,7 +38,7 @@ public class ShopListController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/listshoppageinfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/listshopspageinfo", method = RequestMethod.GET)
     @ResponseBody
     private Map<String, Object> listShopPageInfo(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<>();
@@ -84,6 +84,7 @@ public class ShopListController {
 
     /**
      * 获取特定查询条件下的店铺列表
+     *
      * @param request
      * @return
      */
@@ -96,7 +97,7 @@ public class ShopListController {
         // 获取每页显示的行数
         int pageSize = HttpServletRequestUtil.getInteger(request, "pageSize");
         // 非空判断
-        if ((pageIndex > -1) && (pageSize > -1)){
+        if ((pageIndex > -1) && (pageSize > -1)) {
             // 尝试获取一级类别Id
             long parentId = HttpServletRequestUtil.getLong(request, "parentId");
             // 尝试获取特定的二级类别Id
@@ -106,7 +107,7 @@ public class ShopListController {
             // 尝试获取店铺名字（模糊查询）
             String shopName = HttpServletRequestUtil.getString(request, "shopName");
             // 获取组合后的查询条件
-            Shop shopCondition = compactShopCondition4Search(parentId, shopCategoryId, areaId,shopName);
+            Shop shopCondition = compactShopCondition4Search(parentId, shopCategoryId, areaId, shopName);
             //根据查询条件、分页信息得到店铺列表及个数
             ShopExecution se = shopService.getShopList(shopCondition, pageIndex, pageSize);
             modelMap.put("shopList", se.getShopList());
@@ -121,6 +122,7 @@ public class ShopListController {
 
     /**
      * 组合查询条件，封装至 shopCondition 中
+     *
      * @param parentId
      * @param shopCategoryId
      * @param areaId
@@ -153,7 +155,8 @@ public class ShopListController {
             // （模糊）查询名字
             shopCondition.setShopName(shopName);
         }
-        // 前端展示的店铺的状态都是审核成功
+
+        // 前端展示的店铺的状态须是审核成功
         shopCondition.setEnableStatus(1);
 
         return shopCondition;

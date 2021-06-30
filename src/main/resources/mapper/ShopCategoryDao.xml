@@ -18,7 +18,7 @@
         FROM
         tb_shop_category
         <where>
-            <!-- 返回一级类别 -->
+            <!-- 返回一级类别，一级类别没有 parent -->
             <if test="shopCategoryCondition == null">
                 and parent_id is null
             </if>

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ProductCategoryDao {
     /**
-     * 通过 shopId 查询该店铺中的商品类别
+     * 查询店铺（shopId）中有哪些商品（类别）
      *
      * @param: [shopId]
      * @return: java.util.List<org.vuffy.o2o.entity.ProductCategory>
