@@ -110,7 +110,7 @@ $(function () {
                 $('.list-div').append(html);
                 // 获取目前为止已显示的卡片总数，包含之前已经加载的
                 var total = $('.list-div .card').length;
-                // 若总数达到跟按照此查询条件列出来的总数一致，则停止后台的加载
+                // 若总数达到跟按照此查询条件列出来的总数一致，则停止后台的加载,， delete() ==》hide()
                 if (total >= maxItems) {
                     // 隐藏提示符
                     $('.infinite-scroll-preloader').hide();
@@ -176,7 +176,7 @@ $(function () {
 
     });
 
-    // 需要查询的店铺名字发生变化后，重置页码，清空原先的店铺列表，按照新的名字去查询
+    // 需要查询的店铺名字发生变化后，重置页码，清空原先的店铺列表，按照新的名字去查询，input ==》change
     $('#search').on('change', function (e) {
         shopName = e.target.value;
         $('.list-div').empty();
