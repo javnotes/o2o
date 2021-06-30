@@ -17,38 +17,40 @@ import static org.junit.Assert.assertEquals;
  */
 public class ShopCategoryDaoTest extends BaseTest {
 
-  @Autowired private ShopCategoryDao shopCategoryDao;
+    @Autowired
+    private ShopCategoryDao shopCategoryDao;
 
-  @Test
-  public void testQueryShopCategory() {
-    List<ShopCategory> shopCategoryList = shopCategoryDao.queryShopCategory(new ShopCategory());
-    System.out.println(shopCategoryList.toString());
-    assertEquals(2, shopCategoryList.size());
+    @Test
+    public void testQueryShopCategory() {
+        List<ShopCategory> shopCategoryList = shopCategoryDao.queryShopCategory(new ShopCategory());
+        System.out.println(shopCategoryList.toString());
+        assertEquals(2, shopCategoryList.size());
 
-    ShopCategory shopCategory = new ShopCategory();
-    ShopCategory parentShopCategory = new ShopCategory();
-    parentShopCategory.setShopCategoryId(1L);
-    shopCategory.setParent(parentShopCategory);
-    shopCategoryList = shopCategoryDao.queryShopCategory(shopCategory);
-    assertEquals(2, shopCategoryList.size());
-    System.out.println(shopCategoryList.get(0).getShopCategoryName());
-    System.out.println(shopCategoryList.get(1).getShopCategoryName());
-  }
+        ShopCategory shopCategory = new ShopCategory();
+        ShopCategory parentShopCategory = new ShopCategory();
+        parentShopCategory.setShopCategoryId(1L);
+        shopCategory.setParent(parentShopCategory);
+        shopCategoryList = shopCategoryDao.queryShopCategory(shopCategory);
+        assertEquals(2, shopCategoryList.size());
+        System.out.println(shopCategoryList.get(0).getShopCategoryName());
+        System.out.println(shopCategoryList.get(1).getShopCategoryName());
+    }
 
-  @Test
-  // 可测试查询店铺的一级类别
-  public void testQueryShopCategory2() {
-    List<ShopCategory> shopCategoryList = shopCategoryDao.queryShopCategory(new ShopCategory());
-    System.out.println(shopCategoryList.toString());
-    assertEquals(2, shopCategoryList.size());
+    @Test
+    // 可测试查询店铺的一级类别
+    public void testQueryShopCategory2() {
+        List<ShopCategory> shopCategoryList = shopCategoryDao.queryShopCategory(null);
+        System.out.println(shopCategoryList.toString());
+        System.out.println(shopCategoryList.size());
+        assertEquals(2, shopCategoryList.size());
 
-    ShopCategory shopCategory = new ShopCategory();
-    ShopCategory parentShopCategory = new ShopCategory();
-    parentShopCategory.setShopCategoryId(1L);
-    shopCategory.setParent(parentShopCategory);
-    shopCategoryList = shopCategoryDao.queryShopCategory(shopCategory);
-    assertEquals(2, shopCategoryList.size());
-    System.out.println(shopCategoryList.get(0).getShopCategoryName());
-    System.out.println(shopCategoryList.get(1).getShopCategoryName());
-  }
+//    ShopCategory shopCategory = new ShopCategory();
+//    ShopCategory parentShopCategory = new ShopCategory();
+//    parentShopCategory.setShopCategoryId(1L);
+//    shopCategory.setParent(parentShopCategory);
+//    shopCategoryList = shopCategoryDao.queryShopCategory(shopCategory);
+//    assertEquals(2, shopCategoryList.size());
+//    System.out.println(shopCategoryList.get(0).getShopCategoryName());
+//    System.out.println(shopCategoryList.get(1).getShopCategoryName());
+    }
 }

@@ -11,5 +11,12 @@ import java.util.List;
  * @date 2021/5/23 3:44 下午
  */
 public interface ShopCategoryService {
+
+    /**
+     * 根据查询条件获取 ShopCategoryList 列表
+     *
+     * @param shopCategoryCondition
+     * @return
+     */
     List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition);
 }
