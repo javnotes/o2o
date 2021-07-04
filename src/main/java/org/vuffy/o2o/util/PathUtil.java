@@ -13,7 +13,10 @@ public class PathUtil {
         if (os.toLowerCase().startsWith("win")) {
             bathPath = "C:/documents/image";
         } else {
-            bathPath = "/Users/liliansong/Documents/image";
+            // Mac 路径
+//            bathPath = "/Users/liliansong/Documents/image";
+            // 阿里云 CentOs lujing
+            bathPath = "/home/o2o/image/upload";
         }
         bathPath = bathPath.replace("/", seperator);
         return bathPath;
