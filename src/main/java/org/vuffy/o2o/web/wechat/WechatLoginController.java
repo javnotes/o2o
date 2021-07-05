@@ -3,17 +3,16 @@ package org.vuffy.o2o.web.wechat;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.vuffy.o2o.dto.UserAccessToken;
 import org.vuffy.o2o.dto.WechatUser;
-import org.vuffy.o2o.entity.WechatAuth;
 import org.vuffy.o2o.util.wechat.WechatUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 用户访问到此路由后，跳转至微信，
@@ -31,7 +30,7 @@ public class WechatLoginController {
 //    private static final String FORTEND = "1";
 //    private static final String SHOPEND = "2";
 
-//    @Autowired
+    //    @Autowired
 //    private PersionInfoService persionInfoService;
 //
 //    @Autowired
@@ -46,12 +45,12 @@ public class WechatLoginController {
         String roleType = request.getParameter("state");
         logger.debug("weixin login code:" + code);
         WechatUser wechatUser = null;
-        String openId= null;
-        WechatAuth wechatAuth = null;
+        String openId = null;
+//        WechatAuth wechatAuth = null;
         if (null != code) {
             UserAccessToken token;
             try {
-                // 通过code获取accesstToken
+                // 通过code访问链接，获取accesstToken
                 token = WechatUtil.getUserAccessToken(code);
                 logger.debug("weixin login token:" + token.toString());
 
@@ -60,13 +59,20 @@ public class WechatLoginController {
                 // 通过 token 获取 openId
                 openId = token.getOpenId();
                 // 通过 accessToken 和 openId 获取用户昵称等信息
-               // wechatUser = WechatUtil.
-            } catch (Exception e) {
-
+                wechatUser = WechatUtil.getUserInfo(accessToken, openId);
+                logger.debug("Weixin login user:" + wechatUser.toString());
+                request.getSession().setAttribute("openId", openId);
+            } catch (IOException e) {
+                logger.error("Error in getUserAccessToken or getUserInfo or findByOpenId:" + e.toString());
+                e.printStackTrace();
             }
         }
+
+        if (wechatUser != null) {
+            // 获取到微信的验证消息后，返回到指定的路由，该路由需自己设定
+            return "frontend/index";
+        } else {
+            return null;
+        }
     }
-
-
-
 }

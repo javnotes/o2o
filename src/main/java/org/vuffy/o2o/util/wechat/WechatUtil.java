@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vuffy.o2o.dto.UserAccessToken;
+import org.vuffy.o2o.dto.WechatUser;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -128,4 +129,42 @@ public class WechatUtil {
     }
 
 
+    /**
+     * 获取WechatUser实体类
+     *
+     * @param accessToken
+     * @param openId
+     * @return
+     */
+    public static WechatUser getUserInfo(String accessToken, String openId) {
+
+        // 根据传入的 accessToken、openId 拼接出访问微信定义的端口并获取用户信息的URL
+        String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + accessToken + "&openid=" + openId + "&lang=zh_CN";
+
+        // 访问该 url 获取用户信息 json 字符串
+        String userStr = httpsRequest(url, "GET", null);
+        logger.debug("user info:" + userStr);
+        WechatUser user = new WechatUser();
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            // 将 json 字符串转换成相应的对象
+            user = objectMapper.readValue(userStr, WechatUser.class);
+        } catch (JsonParseException e) {
+            logger.error("获取用户信息失败：" + e.getMessage());
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            logger.error("获取用户信息失败：" + e.getMessage());
+            e.printStackTrace();
+        } catch (IOException e) {
+            logger.error("获取用户信息失败：" + e.getMessage());
+            e.printStackTrace();
+        }
+
+        if (user == null) {
+            logger.error("获取用户信息失败。");
+            return null;
+        }
+        return user;
+    }
 }
