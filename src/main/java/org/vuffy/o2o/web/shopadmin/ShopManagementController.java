@@ -91,7 +91,7 @@ public class ShopManagementController {
         PersonInfo user = new PersonInfo();
         // TODO
         user.setUserId(5L);
-        user.setName("Vuffy");
+        user.setUserName("Vuffy");
         request.getSession().setAttribute("user", user);
         user = (PersonInfo) request.getSession().getAttribute("user");
         try {
