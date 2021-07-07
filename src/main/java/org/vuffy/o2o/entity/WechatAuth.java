@@ -2,22 +2,25 @@ package org.vuffy.o2o.entity;
 
 import java.util.Date;
 
+/**
+ * 微信登录实体类
+ */
 public class WechatAuth {
-
-    private Long wechatId;
-
+    // 主键ID
+    private Long wechatAuthId;
+    // 微信获取用户信息的凭证，对于某个公众号具有唯一性
     private String openId;
-
+    // 创建时间
     private Date createTime;
-
+    // 用户信息
     private PersonInfo personInfo;
 
-    public Long getWechatId() {
-        return wechatId;
+    public Long getWechatAuthId() {
+        return wechatAuthId;
     }
 
-    public void setWechatId(Long wechatId) {
-        this.wechatId = wechatId;
+    public void setWechatAuthId(Long wechatAuthId) {
+        this.wechatAuthId = wechatAuthId;
     }
 
     public String getOpenId() {
