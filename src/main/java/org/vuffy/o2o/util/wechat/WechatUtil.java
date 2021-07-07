@@ -15,7 +15,6 @@ import javax.net.ssl.TrustManager;
 import java.io.*;
 import java.net.ConnectException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 /**
  * 获取，根据参数 code 获取 UserAccessToken 实例类
@@ -101,7 +100,7 @@ public class WechatUtil {
             if (null != outputStr) {
                 OutputStream outputStream = httpsURLConnection.getOutputStream();
                 // 注意编码格式，防止中文乱码
-                outputStream.write(outputStr.getBytes(StandardCharsets.UTF_8));
+                outputStream.write(outputStr.getBytes("UTF-8"));
                 outputStream.close();
             }
 

@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 
 /**
  * 微信调用
+ * 一会在设置的URL里面就设置上这个路由
  */
 @Controller
 @RequestMapping("wechat")

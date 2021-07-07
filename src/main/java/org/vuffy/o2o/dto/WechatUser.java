@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class WechatUser implements Serializable {
 
-    // private static final long serialVersionUID = -4684067645282292327L;
+    private static final long serialVersionUID = 1L;
 
     // openId,标识该公众号下面的该用户的唯一Id
     @JsonProperty("openid")

@@ -42,7 +42,7 @@ public class WechatLoginController {
         // 获取微信方传输过来的code，通过code可获取access_token,进而获取用户信息
         String code = request.getParameter("code");
         // 这个state可以用来传我们自定义的信息，方便程序调用，这里也可以不用
-        String roleType = request.getParameter("state");
+//        String roleType = request.getParameter("state");
         logger.debug("weixin login code:" + code);
         WechatUser wechatUser = null;
         String openId = null;

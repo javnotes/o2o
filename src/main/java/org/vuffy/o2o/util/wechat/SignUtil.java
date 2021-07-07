@@ -1,7 +1,5 @@
 package org.vuffy.o2o.util.wechat;
 
-import java.lang.reflect.Array;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -16,6 +14,7 @@ public class SignUtil {
 
     /**
      * 验证签名
+     *
      * @param signature
      * @param timestamp
      * @param nonce
@@ -26,20 +25,19 @@ public class SignUtil {
         // 对参数 token, timestamp, nonce 进行字典排序
         Arrays.sort(arr);
         StringBuilder content = new StringBuilder();
-
-//        for (int i = 0; i < arr.length; i++) {
-//            content.append(arr[i]);
-//        }
-       // 将参数 token, timestamp, nonce 拼接为一个字符串
-        for (String s : arr) {
-            content.append(s);
+        // 将参数 token, timestamp, nonce 拼接为一个字符串
+        for (int i = 0; i < arr.length; i++) {
+            content.append(arr[i]);
         }
+//        for (String s : arr) {
+//            content.append(s);
+//        }
 
         // package java.security;
         MessageDigest md = null;
         String tmpStr = null;
 
-        try{
+        try {
             md = MessageDigest.getInstance("SHA-1");
             // 得到由参数 token, timestamp, nonce 拼接成的字符串的字节数组
             // 对字节数组进行【加密】
@@ -61,11 +59,11 @@ public class SignUtil {
 
     /**
      * 将字节数组转换为十六进制字符串，转换操作实际由方法 byteToHexStr 处理
+     *
      * @param byteArray
      * @return
      */
     private static String byteToStr(byte[] byteArray) {
-
         String strDigest = "";
         for (int i = 0; i < byteArray.length; i++) {
             strDigest += byteToHexStr(byteArray[i]);
@@ -75,13 +73,13 @@ public class SignUtil {
 
     /**
      * 将字节转换为十六进制字符串
+     *
      * @param mByte
      * @return
      */
     private static String byteToHexStr(byte mByte) {
-        char[] Digit = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+        char[] Digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         char[] tempArr = new char[2];
-
         tempArr[0] = Digit[(mByte >>> 4) & 0X0F];
         tempArr[1] = Digit[mByte & 0X0F];
 

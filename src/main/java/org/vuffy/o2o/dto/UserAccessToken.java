@@ -2,23 +2,24 @@ package org.vuffy.o2o.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * 用户授权token
+ */
 public class UserAccessToken {
 
-    // @JsonProperty 赋值给实体类
-
-    // 凭证
+    // 获取到的凭证
     @JsonProperty("access_token")
     private String accessToken;
-    // 凭证有效时间
+    // 凭证有效时间，单位：秒
     @JsonProperty("expires_in")
     private String expiresIn;
-    // 更新令牌，获取下一次的访问令牌
+    // 表示更新令牌，用来获取下一次的访问令牌，这里没太大用处
     @JsonProperty("refresh_token")
     private String refreshToken;
-    // 用户在此公众号下的身份标识，具有唯一性
-    @JsonProperty("open_id")
+    // 该用户在此公众号下的身份标识，对于此微信号具有唯一性
+    @JsonProperty("openid")
     private String openId;
-    // 权限范围
+    // 表示权限范围，这里可省略
     @JsonProperty("scope")
     private String scope;
 
@@ -60,5 +61,10 @@ public class UserAccessToken {
 
     public void setScope(String scope) {
         this.scope = scope;
+    }
+
+    @Override
+    public String toString() {
+        return "accessToken:" + this.getAccessToken() + ",openId:" + this.getOpenId();
     }
 }
