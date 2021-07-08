@@ -3,7 +3,6 @@ package org.vuffy.o2o.service;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vuffy.o2o.BaseTest;
-import org.vuffy.o2o.dao.PersonInfoDao;
 import org.vuffy.o2o.dto.WechatAuthExecution;
 import org.vuffy.o2o.entity.PersonInfo;
 import org.vuffy.o2o.entity.WechatAuth;
@@ -36,6 +35,5 @@ public class WechatAuthServiceTest extends BaseTest {
         // 测试：通过openId找到新增的wechatAuth
         wechatAuth = wechatAuthService.getWechatAuthByOpenId(openId);
         System.out.println(wechatAuth.getPersonInfo().getUserName());
-
     }
 }

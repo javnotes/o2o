@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vuffy.o2o.dto.UserAccessToken;
 import org.vuffy.o2o.dto.WechatUser;
+import org.vuffy.o2o.entity.PersonInfo;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -165,5 +166,19 @@ public class WechatUtil {
             return null;
         }
         return user;
+    }
+
+    /**
+     * 将微信方的用户的信息转换成PersonInfo里的信息，返回PersonInfo对象
+     * @param wechatUser
+     * @return
+     */
+    public static PersonInfo getPersonInfoFromRequest(WechatUser wechatUser) {
+        PersonInfo personInfo = new PersonInfo();
+        personInfo.setUserName(wechatUser.getNickName());
+        personInfo.setGender(wechatUser.getSex() + "");
+        personInfo.setProfileImg(wechatUser.getHeadimgurl());
+        personInfo.setEnableStatus(1);
+        return personInfo;
     }
 }
