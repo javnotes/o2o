@@ -13,8 +13,8 @@ public class PathUtil {
         } else {
             // Mac 路径
            bathPath = "/Users/liliansong/Documents/image";
-            // 在阿里云中，需先创建该路径
-//            bathPath = "/home/o2o/image";
+//             在阿里云中，需先创建该路径
+            bathPath = "/home/o2o/image";
         }
         bathPath = bathPath.replace("/", seperator);
         return bathPath;
