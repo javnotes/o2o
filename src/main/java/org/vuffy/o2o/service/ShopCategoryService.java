@@ -12,6 +12,8 @@ import java.util.List;
  */
 public interface ShopCategoryService {
 
+    String SHOPCATEGORYLISTKEY = "shopcategorylist";
+
     /**
      * 根据查询条件获取 ShopCategoryList 列表
      *

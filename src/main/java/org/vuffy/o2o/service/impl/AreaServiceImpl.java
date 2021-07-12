@@ -33,11 +33,10 @@ public class AreaServiceImpl implements AreaService {
     @Autowired
     private JedisUtil.Strings jedisStrings;
 
-    private static String AREALISTKEY = "arealist";
     private static Logger logger = LoggerFactory.getLogger(AreaServiceImpl.class);
 
     @Override
-    @Transactional
+    //@Transactional 读操作不需要添加事务，事务只是针对数据库层面的
     public List<Area> getAreaList() {
         String key = AREALISTKEY;
         List<Area> areaList = null;
