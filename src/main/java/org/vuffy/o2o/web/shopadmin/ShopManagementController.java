@@ -89,7 +89,7 @@ public class ShopManagementController {
     private Map<String, Object> getShopList(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<>();
         PersonInfo user = new PersonInfo();
-        // TODO
+        // TODO 部署前需修改
         user.setUserId(1L);
         user.setUserName("Vuffy");
         request.getSession().setAttribute("user", user);
@@ -99,6 +99,8 @@ public class ShopManagementController {
             shopCondition.setPersonInfo(user);
             ShopExecution se = shopService.getShopList(shopCondition, 0, 50);
             modelMap.put("shopList", se.getShopList());
+            // 获取到店铺列表后，将其放入到 session 中，作为权限验证的依据，即该账号只能操作属于它的店铺
+            request.getSession().setAttribute("shopList", se.getShopList());
             modelMap.put("user", user);
             modelMap.put("success", true);
         } catch (Exception e) {
@@ -259,8 +261,7 @@ public class ShopManagementController {
             ShopExecution shopExecution = null;
             try {
                 ImageHolder imageHolder = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
-                shopExecution =
-                        shopService.addShop(shop, imageHolder);
+                shopExecution = shopService.addShop(shop, imageHolder);
                 if (shopExecution.getState() == ShopStateEnum.CHECK.getState()) {
                     modelMap.put("success", true);
                     // 此次店铺信息的添加完成
