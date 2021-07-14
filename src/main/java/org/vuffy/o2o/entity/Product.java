@@ -20,7 +20,10 @@ public class Product {
 
     private Integer priority;
 
-    private Date  createTime;
+    // 购买该商品后，可以获得的积分
+    private Integer point;
+
+    private Date createTime;
 
     private Date lastEditTime;
 
@@ -32,6 +35,14 @@ public class Product {
     private ProductCategory productCategory;
 
     private Shop shop;
+
+    public Integer getPoint() {
+        return point;
+    }
+
+    public void setPoint(Integer point) {
+        this.point = point;
+    }
 
     public Long getProductId() {
         return productId;

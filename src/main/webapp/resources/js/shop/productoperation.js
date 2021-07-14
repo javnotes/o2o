@@ -29,10 +29,9 @@ $(function () {
                 $('#product-name').val(product.productName);
                 $('#product-desc').val(product.productDesc);
                 $('#priority').val(product.priority);
-                $('#point').val(product.point);
                 $('#normal-price').val(product.normalPrice);
-                $('#promotion-price').val(
-                    product.promotionPrice);
+                $('#promotion-price').val(product.promotionPrice);
+                $('#point').val(product.point);
                 // 获取原本的商品类别以及该店铺的所有商品类别列表
                 var optionHtml = '';
                 var optionArr = data.productCategoryList;
